@@ -1,271 +1,126 @@
-/*
-File Structure:
-
-/desam_website
-  /index.html
-  /hakkimizda.html
-  /hizmetler.html
-  /projeler.html
-  /iletisim.html
-  /css/style.css
-  /assets/
-    hero.jpg
-    project1.jpg
-    project2.jpg
-    project3.jpg
-*/
-
-// css/style.css
-/* ------------------------- */
-:root {
-  --primary: #0066CC;
-  --secondary: #333;
-  --light: #f9f9f9;
-  --dark: #1e1e1e;
-  --accent: #FF5722;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Poppins', sans-serif; color: var(--secondary); background: #fff; line-height: 1.6; }
-.container { width: 90%; max-width: 1200px; margin: 0 auto; }
-a { text-decoration: none; color: inherit; }
-header { background: var(--dark); padding: 1rem 0; }
-nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; }
-nav ul li a { color: #fff; font-weight: 600; transition: color .3s; padding: .5rem; }
-nav ul li a:hover,
-nav ul li a.active { color: var(--accent); }
-.hero { display: flex; align-items: center; justify-content: space-between; padding: 4rem 0; }
-.hero-text h1 { font-size: 3rem; color: #fff; margin-bottom: 1rem; }
-.hero-text p { font-size: 1.125rem; color: #ddd; margin-bottom: 2rem; }
-.btn { display: inline-block; padding: .75rem 1.5rem; background: var(--primary); color: #fff; border-radius: 5px; font-weight: 600; transition: background .3s; }
-.btn:hover { background: var(--accent); }
-section { padding: 4rem 0; }
-.section-title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
-.services { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 2rem; margin-top: 2rem; }
-.card { background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center; }
-.card h3 { margin-bottom: 1rem; font-size: 1.5rem; color: var(--primary); }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 1.5rem; margin-top: 2rem; }
-.project-item { position: relative; overflow: hidden; border-radius: 10px; }
-.project-item img { width: 100%; display: block; transition: transform .5s; }
-.project-item:hover img { transform: scale(1.1); }
-footer { background: var(--light); text-align: center; padding: 2rem 0; font-size: .9rem; }
-
-
-// index.html
-/* ------------------------- */
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Desam Software | Ana Sayfa</title>
+  <title>Desam Software | Flutter & Web Çözümleri</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary: #0066CC;
+      --secondary: #333;
+      --light: #f9f9f9;
+      --dark: #1e1e1e;
+      --accent: #FF5722;
+    }
+    * {box-sizing: border-box; margin:0; padding:0;}
+    body {font-family: 'Poppins', sans-serif; color: var(--secondary); line-height: 1.6;}
+    a {text-decoration:none; color: inherit;}
+    header{background: var(--dark); color:#fff; padding:2rem 0;}
+    .container{width:90%; max-width:1200px; margin:0 auto;}
+    nav ul{list-style:none; display:flex; justify-content:center; gap:2rem;}
+    nav ul li a{font-weight:600; transition: color .3s;}
+    nav ul li a:hover{color:var(--accent);}
+    .hero{display:flex; align-items:center; justify-content: space-between; padding:4rem 0;}
+    .hero .hero-text{max-width:600px;}
+    .hero h1{font-size:3rem; margin-bottom:1rem;}
+    .hero p{font-size:1.125rem; margin-bottom:2rem;}
+    .btn{display:inline-block; padding:.75rem 1.5rem; background:var(--primary); color:#fff; border-radius:5px; font-weight:600; transition: background .3s;}
+    .btn:hover{background:var(--accent);}
+    section{padding:4rem 0;}
+    .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-top:2rem;}
+    .card{background:#fff; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); padding:2rem; text-align:center;}
+    .card h3{margin-bottom:1rem; font-size:1.5rem; color:var(--primary);}
+    .projects-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-top:2rem;}
+    .project-item{position:relative; overflow:hidden; border-radius:10px;}
+    .project-item img{width:100%; display:block; transition: transform .5s;}
+    .project-item:hover img{transform:scale(1.1);}
+    footer{background:var(--light); padding:2rem 0; text-align:center; font-size:0.9rem;}
+  </style>
 </head>
 <body>
   <header>
-    <nav class="container">
-      <ul>
-        <li><a href="index.html" class="active">Ana Sayfa</a></li>
-        <li><a href="hakkimizda.html">Hakkımızda</a></li>
-        <li><a href="hizmetler.html">Hizmetler</a></li>
-        <li><a href="projeler.html">Projeler</a></li>
-        <li><a href="iletisim.html">İletişim</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#hakkimizda">Hakkımızda</a></li>
+          <li><a href="#hizmetler">Hizmetler</a></li>
+          <li><a href="#projeler">Projeler</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <div class="hero container" style="background:url('../assets/hero.jpg') center/cover no-repeat; border-radius:10px;">
-    <div class="hero-text" style="max-width:600px;">
+
+  <div class="hero container" id="hero">
+    <div class="hero-text">
       <h1>Yenilikçi Flutter & Web Çözümleri</h1>
-      <p>Desam Software ile modern, hızlı ve kullanıcı dostu mobil ve web uygulamalarının ayrıcalığını yaşayın.</p>
-      <a href="iletisim.html" class="btn">Teklif Alın</a>
-    </
-div>
+      <p>Desam Software olarak en yeni teknoloji ve tasarım trendlerini kullanarak, kullanıcı dostu, yüksek performanslı mobil ve web uygulamaları geliştiriyoruz.</p>
+      <a href="#iletisim" class="btn">Teklif Alın</a>
+    </div>
+    <div class="hero-image">
+      <img src="assets/hero.jpg" alt="Desam Software" style="max-width:500px; border-radius:10px;">
+    </div>
   </div>
+
   <section id="hakkimizda" class="container">
-    <h2 class="section-title">Neden Desam Software?</h2>
-    <p style="text-align:center; font-size:1.125rem;">
-      2010'dan beri teknolojiye yön veren Desam Software, Flutter tabanlı cross-platform projelerde uzmanlaşarak dijital dönüşümünüzü hızlandırır.
+    <h2 style="text-align:center; font-size:2.5rem; color:var(--primary);">Hakkımızda</h2>
+    <p style="text-align:center; margin-top:1rem; font-size:1.125rem;">
+      2010 yılında kurulan Desam Software, 10+ yıllık tecrübemizle Flutter tabanlı cross-platform uygulamalar ve modern web çözümleri sunan bir teknoloji partnerinizdir. Müşteri memnuniyetini odak noktamıza alarak, fikirden uygulamaya tüm süreci profesyonelce yönetiyoruz.
     </p>
   </section>
-  <section id="hizmetler" style="background:var(--light)">
-    <div class="container">
-      <h2 class="section-title">Başlıca Hizmetlerimiz</h2>
-      <div class="services">
-        <div class="card">
-          <h3>Mobil Uygulamalar</h3>
-          <p>iOS & Android için yüksek performanslı, ölçeklenebilir Flutter çözümleri.</p>
-        </div>
-        <div class="card">
-          <h3>Web Çözümleri</h3>
-          <p>Responsive, güvenli ve SEO dostu web uygulamaları.</p>
-        </div>
-        <div class="card">
-          <h3>UI/UX Tasarım</h3>
-          <p>Marka kimliğinize uygun, kullanıcı odaklı arayüz tasarımları.</p>
-        </div>
-        <div class="card">
-          <h3>Back-end & Firebase</h3>
-          <p>Gerçek zamanlı veri yönetimi, bulut entegrasyonları ve API geliştirme.</p>
-        </div>
+
+  <section id="hizmetler" class="container" style="background:var(--light); border-radius:10px;">
+    <h2 style="text-align:center; font-size:2.5rem; color:var(--primary);">Hizmetlerimiz</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Mobil Uygulama</h3>
+        <p>iOS & Android için native performanslı Flutter uygulamaları geliştiriyoruz.</p>
+      </div>
+      <div class="card">
+        <h3>Web Uygulamaları</h3>
+        <p>Responsive, güvenli ve ölçeklenebilir web uygulama çözümleri sunuyoruz.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Tasarım</h3>
+        <p>Kullanıcı odaklı, modern ve etkileyici ara yüz tasarımları hazırlıyoruz.</p>
+      </div>
+      <div class="card">
+        <h3>Back-end & Firebase</h3>
+        <p>Güvenli ve performanslı veri yönetimi, gerçek zamanlı senkronizasyon ve bulut entegrasyonları.</p>
       </div>
     </div>
   </section>
+
   <section id="projeler" class="container">
-    <h2 class="section-title">Öne Çıkan Projeler</h2>
+    <h2 style="text-align:center; font-size:2.5rem; color:var(--primary);">Öne Çıkan Projeler</h2>
     <div class="projects-grid">
-      <div class="project-item"><img src="assets/project1.jpg" alt="Gün Gün Gebelik"></div>
-      <div class="project-item"><img src="assets/project2.jpg" alt="Adet Takibi"></div>
-      <div class="project-item"><img src="assets/project3.jpg" alt="Yakında Geliyor"></div>
+      <div class="project-item">
+        <img src="assets/project1.jpg" alt="Gün Gün Gebelik">
+      </div>
+      <div class="project-item">
+        <img src="assets/project2.jpg" alt="Adet Takibi">
+      </div>
+      <div class="project-item">
+        <img src="assets/project3.jpg" alt="Yakında Geliyor">
+      </div>
     </div>
   </section>
-  <section id="iletisim" style="background:var(--light)">
+
+  <section id="iletisim" class="container" style="background:var(--light); border-radius:10px;">
+    <h2 style="text-align:center; font-size:2.5rem; color:var(--primary);">İletişim</h2>
+    <p style="text-align:center; margin-top:1rem; font-size:1.125rem;">
+      Projeleriniz ve işbirliği fırsatları için bize ulaşın.
+    </p>
+    <p style="text-align:center; margin-top:0.5rem;">
+      <a href="mailto:iletisim@desamsoftware.com.tr" class="btn">E-posta Gönderin</a>
+    </p>
+  </section>
+
+  <footer>
     <div class="container">
-      <h2 class="section-title">İletişime Geçin</h2>
-      <p style="text-align:center; font-size:1.125rem;">Projeleriniz için ücretsiz keşif toplantısı talep etmek veya fiyat teklifi almak için bize ulaşın.</p>
-      <p style="text-align:center;"><a href="mailto:iletisim@desamsoftware.com.tr" class="btn">E-posta Gönder</a></p>
+      <p>&copy; 2025 Desam Software. Tüm hakları saklıdır.</p>
     </div>
-  </section>
-  <footer><div class="container"><p>&copy; 2025 Desam Software | Tüm hakları saklıdır.</p></div></footer>
-</body>
-</html>
-
-// hakkimizda.html
-/* ------------------------- */
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Desam Software | Hakkımızda</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <nav class="container">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="hakkimizda.html" class="active">Hakkımızda</a></li>
-        <li><a href="hizmetler.html">Hizmetler</a></li>
-        <li><a href="projeler.html">Projeler</a></li>
-        <li><a href="iletisim.html">İletişim</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="container">
-    <h2 class="section-title">Hakkımızda</h2>
-    <p>Desam Software, 2010 yılında kurulmuş, Flutter ve modern web teknolojilerinde uzman bir yazılım stüdyosudur. Amacımız, fikirlerinizi hızlıca gerçeğe dönüştürmek ve kullanıcılarınıza en iyi deneyimi sunmaktır.</p>
-    <p style="margin-top:1rem;">Müşteri odaklı yaklaşım, kaliteli kod standardı ve şeffaf iletişim ile projelerinizi başarıya ulaştırıyoruz. Takımımız; yazılım mimarları, UX/UI tasarımcıları ve backend uzmanlarından oluşmaktadır.</p>
-  </section>
-  <footer><div class="container"><p>&copy; 2025 Desam Software | Tüm hakları saklıdır.</p></div></footer>
-</body>
-</html>
-
-// hizmetler.html
-/* ------------------------- */
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Desam Software | Hizmetler</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <nav class="container">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="hakkimizda.html">Hakkımızda</a></li>
-        <li><a href="hizmetler.html" class="active">Hizmetler</a></li>
-        <li><a href="projeler.html">Projeler</a></li>
-        <li><a href="iletisim.html">İletişim</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="container">
-    <h2 class="section-title">Hizmetlerimiz</h2>
-    <div class="services">
-      <div class="card"><h3>Mobil Uygulama Geliştirme</h3><p>Flutter ile hızlı, güvenli ve ölçeklenebilir mobil çözümler.</p></div>
-      <div class="card"><h3>Web Uygulama Geliştirme</h3><p>Modern frontend ve backend teknolojileri ile tam donanımlı web projeleri.</p></div>
-      <div class="card"><h3>UI/UX Tasarım</h3><p>Kullanıcı deneyimini ön planda tutan etkileşimli tasarımlar.</p></div>
-      <div class="card"><h3>API & Bulut Entegrasyonları</h3><p>RESTful API, GraphQL ve Firebase çözümleri.</p></div>
-      <div class="card"><h3>Bakım & Destek</h3><p>Proje sonrası güncelleme, optimizasyon ve teknik destek.</p></div>
-    </div>
-  </section>
-  <footer><div class="container"><p>&copy; 2025 Desam Software | Tüm hakları saklıdır.</p></div></footer>
-</body>
-</html>
-
-// projeler.html
-/* ------------------------- */
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Desam Software | Projeler</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <nav class="container">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="hakkimizda.html">Hakkımızda</a></li>
-        <li><a href="hizmetler.html">Hizmetler</a></li>
-        <li><a href="projeler.html" class="active">Projeler</a></li>
-        <li><a href="iletisim.html">İletişim</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="container">
-    <h2 class="section-title">Projelerimiz</h2>
-    <div class="projects-grid">
-      <div class="project-item"><img src="assets/project1.jpg" alt="Gün Gün Gebelik"><p style="position:absolute;bottom:10px;left:10px;color:#fff;font-weight:600;">Gün Gün Gebelik</p></div>
-      <div class="project-item"><img src="assets/project2.jpg" alt="Adet Takibi"><p style="position:absolute;bottom:10px;left:10px;color:#fff;font-weight:600;">Adet Takibi</p></div>
-      <div class="project-item"><img src="assets/project3.jpg" alt="Yeni Projeler"><p style="position:absolute;bottom:10px;left:10px;color:#fff;font-weight:600;">Yeni Projeler</p></div>
-    </div>
-  </section>
-  <footer><div class="container"><p>&copy; 2025 Desam Software | Tüm hakları saklıdır.</p></div></footer>
-</body>
-</html>
-
-// iletisim.html
-/* ------------------------- */
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Desam Software | İletişim</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <nav class="container">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="hakkimizda.html">Hakkımızda</a></li>
-        <li><a href="hizmetler.html">Hizmetler</a></li>
-        <li><a href="projeler.html">Projeler</a></li>
-        <li><a href="iletisim.html" class="active">İletişim</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="container">
-    <h2 class="section-title">Bize Ulaşın</h2>
-    <p style="font-size:1.125rem;">Projeleriniz hakkında konuşmak ya da işbirliği tekliflerinde bulunmak için aşağıdaki formu doldurabilirsiniz:</p>
-    <form action="#" style="max-width:600px;margin:2rem auto;display:flex;flex-direction:column;gap:1rem;">
-      <input type="text" name="isim" placeholder="Adınız" required style="padding:1rem;border:1px solid #ccc;border-radius:5px;">
-      <input type="email" name="email" placeholder="E-posta" required style="padding:1rem;border:1px solid #ccc;border-radius:5px;">
-      <textarea name="mesaj" rows="6" placeholder="Mesajınız" required style="padding:1rem;border:1px solid #ccc;border-radius:5px;"></textarea>
-      <button type="submit" class="btn">Gönder</button>
-    </form>
-  </section>
-  <footer><div class="container"><p>&copy; 2025 Desam Software | Tüm hakları saklıdır.</p></div></footer>
+  </footer>
 </body>
 </html>
